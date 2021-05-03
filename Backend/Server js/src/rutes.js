@@ -443,8 +443,8 @@ app.get('/c20', async function(req, res){
 });
 
 app.get('/paises', async function(req, res){
-    var sql="SELECT P.id_pais ID, P.nombre, P.capital, P.poblacion, P.area,R.id_region, R.nombre Region FROM Pais P "+
-    "INNER JOIN region R ON (P.id_region=R.id_region)"+ 
+    var sql="SELECT P.id_pais ID, P.nombre, P.capital, P.poblacion, P.area,R.id_region, R.nombre Region FROM PAIS P "+
+    "INNER JOIN REGION R ON (P.id_region=R.id_region)"+ 
     "ORDER BY P.id_pais DESC ;";
     connection.query(sql, function (error, result){
         if(error){
@@ -458,7 +458,7 @@ app.get('/paises', async function(req, res){
   });
 
   app.get('/regiones', async function(req, res){
-    var sql="SELECT * FROM region;";
+    var sql="SELECT * FROM REGION;";
     connection.query(sql, function (error, result){
         if(error){
           res.end();
@@ -472,7 +472,7 @@ app.get('/paises', async function(req, res){
 
   app.post('/AddContry', async function(req, res){
     var c=req.body;
-    var sql="INSERT INTO pais (nombre, capital, poblacion, area, id_region) VALUES(?,?,?,?,?);";
+    var sql="INSERT INTO PAIS (nombre, capital, poblacion, area, id_region) VALUES(?,?,?,?,?);";
     connection.query(sql, [c.nombre,c.capital,c.poblacion,c.area,c.id_region], function (error, result){
         if(error){
           res.end();
@@ -486,7 +486,7 @@ app.get('/paises', async function(req, res){
 
   app.post('/DeleteContry', async function(req, res){
     var c=req.body;
-    var sql="DELETE FROM pais WHERE pais.id_pais=?;";
+    var sql="DELETE FROM PAIS WHERE pais.id_pais=?;";
     connection.query(sql, [c.id_pais], function (error, result){
         if(error){
           res.end();
@@ -500,7 +500,7 @@ app.get('/paises', async function(req, res){
 
   app.post('/UpdateContry', async function(req, res){
     var c=req.body;
-    var sql="UPDATE pais SET nombre=?, capital=?, poblacion=?, area=?, id_region=? WHERE id_pais=?;";
+    var sql="UPDATE PAIS SET nombre=?, capital=?, poblacion=?, area=?, id_region=? WHERE id_pais=?;";
     connection.query(sql, [c.nombre,c.capital,c.poblacion,c.area,c.id_region,c.id_pais], function (error, result){
         if(error){
           res.end();
@@ -513,8 +513,8 @@ app.get('/paises', async function(req, res){
   });
 
   app.get('/Preguntas', async function(req, res){
-    var sql="SELECT P.id_pregunta, P.pregunta, P.id_encuesta, E.nombre FROM pregunta P "+
-    "INNER JOIN encuesta E ON (E.id_encuesta=P.id_encuesta) ORDER BY P.id_pregunta DESC ; ";
+    var sql="SELECT P.id_pregunta, P.pregunta, P.id_encuesta, E.nombre FROM PREGUNTA P "+
+    "INNER JOIN ENCUESTA E ON (E.id_encuesta=P.id_encuesta) ORDER BY P.id_pregunta DESC ; ";
     connection.query(sql, function (error, result){
         if(error){
           res.end();
@@ -527,7 +527,7 @@ app.get('/paises', async function(req, res){
   });
 
   app.get('/encuestas', async function(req, res){
-    var sql="SELECT * FROM encuesta;";
+    var sql="SELECT * FROM ENCUESTA;";
     connection.query(sql, function (error, result){
         if(error){
           res.end();
@@ -541,7 +541,7 @@ app.get('/paises', async function(req, res){
 
   app.post('/AddQuestion', async function(req, res){
     var c=req.body;
-    var sql="INSERT INTO pregunta (pregunta, id_encuesta) VALUES(?,?);";
+    var sql="INSERT INTO PREGUNTA (pregunta, id_encuesta) VALUES(?,?);";
     connection.query(sql, [c.pregunta, c.id_encuesta], function (error, result){
         if(error){
           res.end();
@@ -555,7 +555,7 @@ app.get('/paises', async function(req, res){
 
   app.post('/DeleteQuestion', async function(req, res){
     var c=req.body;
-    var sql="DELETE FROM pregunta WHERE id_pregunta=?;";
+    var sql="DELETE FROM PREGUNTA WHERE id_pregunta=?;";
     connection.query(sql, [c.id_pregunta], function (error, result){
         if(error){
           res.end();
@@ -569,7 +569,7 @@ app.get('/paises', async function(req, res){
 
   app.post('/UpdateQuestion', async function(req, res){
     var c=req.body;
-    var sql="UPDATE pregunta SET pregunta=?, id_encuesta=? WHERE id_pais=?;";
+    var sql="UPDATE PREGUNTA SET pregunta=?, id_encuesta=? WHERE id_pais=?;";
     connection.query(sql, [c.pregunta, c.id_encuesta, c.id_pregunta ], function (error, result){
         if(error){
           res.end();
@@ -582,9 +582,9 @@ app.get('/paises', async function(req, res){
   });
 
   app.get('/Inventos', async function(req, res){
-    var sql="SELECT I.id_invento, I.id_inventor, IR.nombre AS Inventor, IV.nombre AS Ivento, IV.año As anio FROM Invencion I "+
-    " INNER JOIN Invento IV ON (IV.id_invento=I.id_invento) "+
-    " INNER JOIN Inventor IR ON (IR.id_inventor=I.id_inventor); ";
+    var sql="SELECT I.id_invento, I.id_inventor, IR.nombre AS Inventor, IV.nombre AS Ivento, IV.año As anio FROM INVENCION I "+
+    " INNER JOIN INVENTO IV ON (IV.id_invento=I.id_invento) "+
+    " INNER JOIN INVENTOR IR ON (IR.id_inventor=I.id_inventor); ";
     connection.query(sql, function (error, result){
         if(error){
           res.end();
@@ -597,7 +597,7 @@ app.get('/paises', async function(req, res){
   });
 
   app.get('/Inventores', async function(req, res){
-    var sql=" SELECT * FROM inventor; ";
+    var sql=" SELECT * FROM INVENTOR; ";
     connection.query(sql, function (error, result){
         if(error){
           res.end();
@@ -611,7 +611,7 @@ app.get('/paises', async function(req, res){
 
   app.post('/UpdateInvento', async function(req, res){
     var c=req.body;
-    var sql="UPDATE Invento SET nombre=?, año=? WHERE id_invento=?;";
+    var sql="UPDATE INVENTO SET nombre=?, año=? WHERE id_invento=?;";
     connection.query(sql, [c.nombre, c.anio, c.id_invento ], function (error, result){
         if(error){
           res.end();
@@ -625,7 +625,7 @@ app.get('/paises', async function(req, res){
 
   app.post('/UpdateInvencion', async function(req, res){
     var c=req.body;
-    var sql="UPDATE Invencion SET id_inventor=? WHERE id_invento=? and id_inventor=?;";
+    var sql="UPDATE INVENCION SET id_inventor=? WHERE id_invento=? and id_inventor=?;";
     connection.query(sql, [ c.id_inventor, c.id_invento, c.new ], function (error, result){
         if(error){
           res.end();
@@ -638,9 +638,9 @@ app.get('/paises', async function(req, res){
   });
 
   app.get('/Respuestas', async function(req, res){
-    var sql=" SELECT P.pregunta, O.opcion, C.id_pregunta, C.id_opcion FROM correcta C "+
-    " INNER JOIN pregunta P ON (P.id_pregunta=C.id_pregunta) "+
-    " INNER JOIN opcion O ON (O.id_opcion=C.id_opcion); ";
+    var sql=" SELECT P.pregunta, O.opcion, C.id_pregunta, C.id_opcion FROM CORRECTA C "+
+    " INNER JOIN PREGUNTA P ON (P.id_pregunta=C.id_pregunta) "+
+    " INNER JOIN OPCION O ON (O.id_opcion=C.id_opcion); ";
     connection.query(sql, function (error, result){
         if(error){
           res.end();
@@ -668,7 +668,7 @@ app.get('/paises', async function(req, res){
 
   app.post('/UpdateAnswer', async function(req, res){
     var c=req.body;
-    var sql="UPDATE correcta SET id_opcion=? WHERE id_pregunta=? and id_opcion=?;";
+    var sql="UPDATE CORRECTA SET id_opcion=? WHERE id_pregunta=? and id_opcion=?;";
     connection.query(sql, [ c.id_opcion, c.id_pregunta, c.old ], function (error, result){
         if(error){
           res.end();
