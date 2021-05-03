@@ -1,0 +1,61 @@
+<hr>
+<h1>Inventos</h1>
+<hr>
+<div class=" container text-center col-sm-6">
+        <div class="card card-6">
+            <div class="card-heading">
+                <h2 class="title">Mantenimiento Invento</h2>
+            </div>
+            <div class="card-body container text-center">
+                    <div class="form-row">
+                        <div class="col-sm-3">Invento</div>
+                        <div class="col-sm-3">
+                            <input class="input--style-6" [(ngModel)]="Invento.nombre" type="text" [ngModelOptions]="{standalone: true}">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-sm-3">año</div>
+                        <div class="col-sm-3">
+                            <input class="input--style-6" [(ngModel)]="Invento.anio" type="text" [ngModelOptions]="{standalone: true}" >
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-sm-3">Inventor</div>
+                        <div class="col-sm-3">
+                            <div class="input-group">
+                                <select id="categoria" name="categoria" class="form-control" [(ngModel)]="Invento.id_inventor" [ngModelOptions]="{standalone: true}" >
+                                    <option *ngFor="let cat of Inventores" [value]="cat.id_inventor">{{cat.nombre}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                  
+            </div>
+                <button class="btn btn-primary" type="submit" (click)="update()">Editar</button>
+           
+        </div>
+</div>
+
+<hr>
+<div class="container text-center">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+              <th scope="col">Invento</th>
+              <th scope="col">Inventor</th>
+              <th scope="col">año</th>
+              <th scope="col">Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="table-light" *ngFor="let p of Inventos">
+                <th scope="row">{{p.Ivento}}</th>
+                <td>{{p.Inventor}}</td>
+                <td>{{p.anio}}</td>
+                <td><button type="button" class="btn btn-outline-danger btn-sm" (click)="edit(p.id_invento,p.id_inventor,p.Ivento,p.anio)">X</button></td>
+              </tr>
+        </tbody>
+    </table>
+    
+</div>  

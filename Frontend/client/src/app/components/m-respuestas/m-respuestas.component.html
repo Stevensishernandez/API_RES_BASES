@@ -1,0 +1,53 @@
+<hr>
+<h1>Respuestas </h1>
+<hr>
+<div class=" container text-center col-sm-6">
+        <div class="card card-6">
+            <div class="card-heading">
+                <h2 class="title">Mantenimiento de Respuestas Correctas</h2>
+            </div>
+            <div class="card-body container text-center">
+                    <div class="form-row">
+                        <div class="col-sm-3">Pregunta</div>
+                        <div class="col-sm-3">
+                            <input class="input--style-6" [(ngModel)]="correcta.nombre" type="text" [ngModelOptions]="{standalone: true}">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-sm-3">Opcion correcta</div>
+                        <div class="col-sm-3">
+                            <div class="input-group">
+                                <select id="categoria" name="categoria" class="form-control" [(ngModel)]="correcta.id_opcion" [ngModelOptions]="{standalone: true}" >
+                                    <option *ngFor="let cat of Opciones" [value]="cat.id_opcion">{{cat.opcion}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                  
+            </div>
+                <button class="btn btn-primary" type="submit" (click)="Update()">Editar</button>
+           
+        </div>
+</div>
+
+<hr>
+<div class="container text-center">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+              <th scope="col">Pregunta</th>
+              <th scope="col">Opcion Correcta</th>
+              <th scope="col">Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="table-light" *ngFor="let p of Respuestas">
+                <th scope="row">{{p.pregunta}}</th>
+                <td>{{p.opcion}}</td>
+                <td><button type="button" class="btn btn-outline-danger btn-sm" (click)="edit(p.id_opcion,p.id_pregunta, p.pregunta)">X</button></td>
+              </tr>
+        </tbody>
+    </table>
+    
+</div>  

@@ -1,32 +1,38 @@
-<hr>
-
 <div class="container">
-  <div class="row">
-    <div class="col-sm-0.5">
+  <form class="form-signin text-center">
       
-    </div>
-    <div class="col-sm-11">
-        <table class="table table-hover">
-            <thead class="table-dark">
-                <th scope="col">{{thead1}}</th>
-                <th scope="col">{{thead2}}</th>
-                <th scope="col">{{thead3}}</th>
-                <th scope="col">{{thead4}}</th>
-            </thead>
-            <tbody>
-                <tr class="table-light" *ngFor="let p of valor">
-                    <th scope="row">{{p.poblacion}}</th>
-                    <td>{{p.territorio}}</td>
-                    <td>{{p.frontera}}</td>
-                    <td>{{p.region}}</td>
-                </tr>
-            </tbody>
-          </table>
-    </div>
-    <div class="col-sm-0.5">
-        
-    </div>
-  </div>
+      <h3 class="text-white">Consulta</h3>
+      <input type="user" [(ngModel)]="opcion"  placeholder="Numero de consulta" name="password" id="password" class="form-control" required="" autofocus="">
+      <button class="btn btn-lg btn-primary btn-block" (click)="cambio()" type="submit">Buscar</button>
+      
+      <h1 class="text-white">{{consulta}}</h1>
+
+      <div class="card-group bg-transparent"  role="group" id="errores" *ngIf="tabla">
+          <div _ngcontent-srk-c16="" class="card table-responsive"  >
+              <table class="table table-bordered table-striped text-center" id="tabla">
+                  <thead>
+                      <tr>
+                          <th scope="col">{{c1}}</th>
+                          <th scope="col">{{c2}}</th>
+                          <th scope="col">{{c3}}</th>
+                          <th scope="col">{{c4}}</th>
+                      </tr>
+                  </thead>
+                  
+                  <tbody id="infoTabla" >
+                      <tr *ngFor="let p of valor">
+                          <td>{{p.c1}}</td>
+                          <td>{{p.c2}}</td>
+                          <td>{{p.c3}}</td>
+                          <td>{{p.c4}}</td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+      </div>
+      
+  </form>
 </div>
+
 
     

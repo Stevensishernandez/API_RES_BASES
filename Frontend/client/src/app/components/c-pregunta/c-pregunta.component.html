@@ -1,0 +1,54 @@
+<hr>
+<h1>Paises</h1>
+<hr>
+<div class=" container text-center col-sm-6">
+        <div class="card card-6">
+            <div class="card-heading">
+                <h2 class="title">Registrar Preguntas</h2>
+            </div>
+            <div class="card-body container text-center">
+                    <div class="form-row">
+                        <div class="col-sm-3">Nombre</div>
+                        <div class="col-sm-3">
+                            <input class="input--style-6" [(ngModel)]="pregunta.pregunta" type="text" [ngModelOptions]="{standalone: true}">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-sm-3">Region</div>
+                        <div class="col-sm-3">
+                            <div class="input-group">
+                                <select id="categoria" name="categoria" class="form-control" [(ngModel)]="pregunta.id_encuesta" [ngModelOptions]="{standalone: true}" >
+                                    <option *ngFor="let cat of encuestas" [value]="cat.id_encuesta">{{cat.nombre}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                  
+            </div>
+                <button class="btn btn-primary" type="submit" (click)="add()  " *ngIf="estado" >Añadir Pais</button>
+                <button class="btn btn-primary" type="submit" (click)="update()" *ngIf="estado2">Editar</button>
+           
+        </div>
+</div>
+
+<hr>
+<div class="container text-center">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+              <th scope="col">Pregunta</th>
+              <th scope="col">encuesta</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="table-light" *ngFor="let p of preguntas">
+                <th scope="row">{{p.pregunta}}</th>
+                <td>{{p.nombre}}</td>
+                <td><button type="button" class="btn btn-outline-danger btn-sm" (click)="edit(p.id_pregunta, p.pregunta, p.id_encuesta)">X</button></td>
+                <td><button type="button" class="btn btn-outline-danger btn-sm" (click)="delete(p.id_pregunta)">X</button></td>
+              </tr>
+        </tbody>
+    </table>
+    
+</div>  
+

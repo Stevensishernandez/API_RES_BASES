@@ -1,0 +1,84 @@
+ 
+
+<hr>
+<h1>Paises</h1>
+<hr>
+<div class=" container text-center col-sm-6">
+        <div class="card card-6">
+            <div class="card-heading">
+                <h2 class="title">Registrar Paises</h2>
+            </div>
+            <div class="card-body container text-center">
+                    <div class="form-row">
+                        <div class="col-sm-3">Nombre</div>
+                        <div class="col-sm-3">
+                            <input class="input--style-6" [(ngModel)]="pais.nombre" type="text" [ngModelOptions]="{standalone: true}">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-sm-3">Capital</div>
+                        <div class="col-sm-3">
+                            <input class="input--style-6" [(ngModel)]="pais.capital" type="text" [ngModelOptions]="{standalone: true}" >
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-sm-3">Area</div>
+                        <div class="col-sm-3">
+                            <input class="input--style-6" [(ngModel)]="pais.area" type="text" [ngModelOptions]="{standalone: true}" >
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-sm-3">Poblacion</div>
+                        <div class="col-sm-3">
+                            <input class="input--style-6" [(ngModel)]="pais.poblacion" type="text" [ngModelOptions]="{standalone: true}" >
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-sm-3">Region</div>
+                        <div class="col-sm-3">
+                            <div class="input-group">
+                                <select id="categoria" name="categoria" class="form-control" [(ngModel)]="pais.id_region" [ngModelOptions]="{standalone: true}" >
+                                    <option *ngFor="let cat of regiones" [value]="cat.id_region">{{cat.nombre}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                  
+            </div>
+                <button class="btn btn-primary" type="submit" (click)="addContry()  " *ngIf="estado" >Añadir pais</button>
+                <button class="btn btn-primary" type="submit" (click)="EditPais()" *ngIf="estado2">Editar</button>
+           
+        </div>
+</div>
+
+<hr>
+<div class="container text-center">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+              <th scope="col">Nombre</th>
+              <th scope="col">Capital</th>
+              <th scope="col">Poblacion</th>
+              <th scope="col">Area</th>
+              <th scope="col">Region</th>
+              <th scope="col">Edit</th>
+              <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="table-light" *ngFor="let product of paises">
+                <th scope="row">{{product.nombre}}</th>
+                <td>{{product.capital}}</td>
+                <td>{{product.poblacion}}</td>
+                <td>{{product.area}}</td>
+                <td>{{product.Region}}</td>
+                <td><button type="button" class="btn btn-outline-danger btn-sm" (click)="edit(product.ID,product.nombre,product.capital,product.poblacion, product.area, product.id_region)">X</button></td>
+                <td><button type="button" class="btn btn-outline-danger btn-sm" (click)="delete(product.ID)">X</button></td>
+              </tr>
+        </tbody>
+    </table>
+    
+</div>  
