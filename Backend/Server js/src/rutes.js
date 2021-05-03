@@ -486,7 +486,7 @@ app.get('/paises', async function(req, res){
 
   app.post('/DeleteContry', async function(req, res){
     var c=req.body;
-    var sql="DELETE FROM PAIS WHERE pais.id_pais=?;";
+    var sql="DELETE FROM PAIS WHERE PAIS.id_pais=?;";
     connection.query(sql, [c.id_pais], function (error, result){
         if(error){
           res.end();
@@ -569,7 +569,7 @@ app.get('/paises', async function(req, res){
 
   app.post('/UpdateQuestion', async function(req, res){
     var c=req.body;
-    var sql="UPDATE PREGUNTA SET pregunta=?, id_encuesta=? WHERE id_pais=?;";
+    var sql="UPDATE PREGUNTA SET pregunta=?, id_encuesta=? WHERE id_pregunta=?;";
     connection.query(sql, [c.pregunta, c.id_encuesta, c.id_pregunta ], function (error, result){
         if(error){
           res.end();

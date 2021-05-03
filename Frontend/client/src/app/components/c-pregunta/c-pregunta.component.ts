@@ -61,6 +61,8 @@ export class CPreguntaComponent implements OnInit {
       pregunta: pregunta,
       id_encuesta: id_encuesta
     }; 
+    this.estado=false;
+    this.estado2=true;
     console.log(this.pregunta);
   }
 
