@@ -39,7 +39,7 @@ export class ConsultasComponent implements OnInit {
         this.valor = <Reporte>res;
         this.c1 = "Profesional";
         this.c2 = "Inventos";
-        this.consulta = "1. Desplegar cada profesional, y el número de inventos que tiene asignados ordenados de mayor a menor";
+        this.consulta = "1. Desplegar cada profesional, y el número de inventos que tiene asignados ordenados de mayor a menor.";
       });
 
     }else if(this.opcion == "2"){
@@ -48,7 +48,7 @@ export class ConsultasComponent implements OnInit {
         this.c1 = "Continente";
         this.c2 = "Pais";
         this.c3 = "Contestadas";
-        this.consulta = "2. Desplegar los países de cada continente y el número de preguntas que han contestado de cualquier encuesta. Si hay países que no han contestado ninguna encuesta, igual debe aparecer su nombre el la lista";
+        this.consulta = "2. Desplegar los países de cada continente y el número de preguntas que han contestado decualquier encuesta.Si hay países que no han contestado ninguna encuesta, igual debe aparecer su nombre el la lista";
       });
 
     }else if(this.opcion == "3"){
@@ -56,7 +56,7 @@ export class ConsultasComponent implements OnInit {
         this.valor = <Reporte>res;
         this.c1 = "Pais";
         this.c2 = "Area";
-        this.consulta = "3. Desplegar todos los países que no tengan ningún inventor y que no tengan ninguna frontera con otro país ordenados por su área";
+        this.consulta = "3. Desplegar todos los países que no tengan ningún inventor y que no tengan ninguna frontera con otro país ordenados por su área.";
       });
       
     }else if(this.opcion == "4"){
@@ -65,7 +65,7 @@ export class ConsultasComponent implements OnInit {
         this.c1 = "Jefe";
         this.c2 = "Subalterno";
         this.c3 = "Area";
-        this.consulta = "4. Desplegar el nombre de cada jefe seguido de todos sus subalternos, para todos los profesionales ordenados por el jefe alfabéticamente"
+        this.consulta = "4. Desplegar el nombre de cada jefe seguido de todos sus subalternos, para todos los profesionales ordenados por el jefe alfabéticamente. "
       });
       
     }else if(this.opcion == "5"){
@@ -75,7 +75,7 @@ export class ConsultasComponent implements OnInit {
         this.c2 = "Salario";
         this.c3 = "Area";
         this.c4 = "Promedio";
-        this.consulta = "5. Desplegar todos los profesionales, y su salario cuyo salario es mayor al promedio del salario de los profesionales en su misma área"
+        this.consulta = "5. Desplegar todos los profesionales, y su salario cuyo salario es mayor al promedio del salario de los profesionales en su misma área."
       });
       
     }else if(this.opcion == "6"){
@@ -83,7 +83,7 @@ export class ConsultasComponent implements OnInit {
         this.valor = <Reporte>res;
         this.c1 = "Pais";
         this.c2 = "Aciertos";
-        this.consulta = "6. Desplegar los nombres de los países que han contestado encuestas, ordenados del país que más aciertos ha tenido hasta el que menos aciertos ha tenido"
+        this.consulta = "6. Desplegar los nombres de los países que han contestado encuestas, ordenados del país que más aciertos ha tenido hasta el que menos aciertos ha tenido."
       });
       
     }else if(this.opcion == "7"){
@@ -92,7 +92,7 @@ export class ConsultasComponent implements OnInit {
         this.c1 = "Invento";
         this.c2 = "Profecional";
         this.c3 = "Area";
-        this.consulta = "7. Desplegar los inventos documentados por todos los profesionales expertos en Óptica"
+        this.consulta = "7. Desplegar los inventos documentados por todos los profesionales expertos en Óptica."
       });
       
     }else if(this.opcion == "8"){

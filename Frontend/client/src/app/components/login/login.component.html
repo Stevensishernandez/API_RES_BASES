@@ -17,10 +17,10 @@
                   </div>
                   <form class="user">
                     <div class="form-group">
-                      <input type="email" class="form-control form-control-user"  type="text" aria-describedby="emailHelp" placeholder="email">
+                      <input type="email" class="form-control form-control-user" [ngModelOptions]="{standalone: true}" [(ngModel)]="email" type="text" aria-describedby="emailHelp" placeholder="email">
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user"  type="password"  placeholder="Password">
+                      <input type="password" class="form-control form-control-user" [ngModelOptions]="{standalone: true}" [(ngModel)]="password" type="password"  placeholder="Password">
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">
@@ -31,18 +31,12 @@
                
 
                     <div class="card-footer">
-                      <button class="btn btn-primary btn-user btn-block" type="submit"  >login</button>
+                      <button class="btn btn-primary btn-user btn-block" type="submit"  (click)="login()" >login</button>
                   </div>
                     
                     
                   </form>
-                  <hr>
-                  
-
-        
-                  
-            
-                
+                  <hr>                
                 </div>
               </div>
             </div>

@@ -9,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
 
   constructor() { }
-  result:any=[];
+  email='';
+  password = '';
   ngOnInit(): void {
     
+  }
+
+  login(){
+    console.log(this.email + this.password);
+    if(this.email=='admin' && this.password =='admin'){
+      document.location.href="/consultas"
+    }else{
+      alert('Credenciales no coiciden');
+    }
   }
 
 }
